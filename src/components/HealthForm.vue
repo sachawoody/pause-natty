@@ -1,45 +1,56 @@
 <template>
-    <form @submit.prevent="handleSubmit">
+    <div id="section-calories">
+        <h3>Calcul de vos besoin en calories</h3>
 
-        <p>Merci de renseigner toutes les informations</p>
-        <select v-model="genre" required>
-            <option value="default">Choisir un sexe :</option>
-            <option value="male">Homme</option>
-            <option value="female">Femme</option>
-        </select>
+        <form @submit.prevent="handleSubmit">
 
-        <label>Age :<input placeholder='En années' v-model="age" required></label>
-        <label>Poids :<input placeholder='En Kg' v-model="poids" required></label>
-        <label>Taille :<input placeholder='En cm' v-model="taille" required></label>
+            <p>Merci de renseigner toutes les informations</p>
+            <select v-model="genre" required>
+                <option value="default">Choisir un sexe :</option>
+                <option value="male">Homme</option>
+                <option value="female">Femme</option>
+            </select>
 
-        <select v-model="coeff" required>
-            <option value="1">Journée passée au repos allongé</option>
-            <option value="1.2">Travail sédentaire assis, pas de sport, moins de 30 min de marche</option>
-            <option value="1.4">Travail sédentaire avec 30 min de marche</option>
-            <option value="1.6">Travail sédentaire et 1 h à 1 h 15 de sport</option>
-            <option value="1.7">Travail sédentaire et 1 h 30 à 2 h de sport</option>
-            <option value="1.8">Travail physique avec beaucoup de déplacements et 1 h 30 à 2 h de sport</option>
-            <option value="2">Travail physique et 3 à 4 h de sport</option>
-        </select>
+            <label>Age :<input placeholder='En années' v-model="age" required></label>
+            <label>Poids :<input placeholder='En Kg' v-model="poids" required></label>
+            <label>Taille :<input placeholder='En cm' v-model="taille" required></label>
 
-        <div class="submit">
-            <button>Calculer</button>
-        </div>
+            <select v-model="coeff" required>
+                <option value="1">Journée passée au repos allongé</option>
+                <option value="1.2">Travail sédentaire assis, pas de sport, moins de 30 min de marche</option>
+                <option value="1.4">Travail sédentaire avec 30 min de marche</option>
+                <option value="1.6">Travail sédentaire et 1 h à 1 h 15 de sport</option>
+                <option value="1.7">Travail sédentaire et 1 h 30 à 2 h de sport</option>
+                <option value="1.8">Travail physique avec beaucoup de déplacements et 1 h 30 à 2 h de sport</option>
+                <option value="2">Travail physique et 3 à 4 h de sport</option>
+            </select>
 
-        <div v-if="result">
-            <h2>Vous avez besoin de {{ result }} calories chaque jour</h2>
-            <form>
-                <label>
-                    + 10 % ou - 10 % (en fonction du métabolisme)
-                    <select @change="handleChange" v-model="metabolism">
-                        <option value="fast">Métabolisme qui brûle rapidement (plutôt maigre et sec)</option>
-                        <option value="long">Métabolisme plus lent (prise de poids plus facile)</option>
-                    </select>
-                </label>
-            </form>
-            <p v-if="tempResult">Nouveau truc : {{ tempResult }}</p>
-        </div>
-    </form>
+            <div class="submit">
+                <button>Calculer</button>
+            </div>
+
+            <div v-if="result">
+                <p>{{ result }} ! C’est le nombre de calories que brûle votre corps quotidiennement. Si vous souhaitez
+                    perdre de
+                    la graisse
+                    il vous faudra en consommer un petit peu moins, et si vous souhaitez vous muscler il vous faudra en
+                    consommer un peu plus.
+
+                    Un processus simple à comprendre mais compliqué à mettre en œuvre dans la vie de tous les jours.
+                    Contactez-nous ici (lien vers la page contact) pour que l’on vous accompagne.</p>
+                <form>
+                    <label>
+                        + 10 % ou - 10 % (en fonction du métabolisme)
+                        <select @change="handleChange" v-model="metabolism">
+                            <option value="fast">Métabolisme qui brûle rapidement (plutôt maigre et sec)</option>
+                            <option value="long">Métabolisme plus lent (prise de poids plus facile)</option>
+                        </select>
+                    </label>
+                </form>
+                <p v-if="tempResult">Nouveau truc : {{ tempResult }}</p>
+            </div>
+        </form>
+    </div>
 </template>
 
 <script>

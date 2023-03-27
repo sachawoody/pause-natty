@@ -1,11 +1,36 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Form from '../views/Form.vue'
+import Home from '@/views/Home.vue'
+import Menu from '@/views/Menu.vue'
+import Contact from '@/views/Contact.vue'
+import CGV from '@/views/CGV.vue'
+import Mentions from '@/views/MentionsLegales.vue'
+
 const routes = [
 
   {
     path: '/',
-    name: 'Form',
-    component: Form
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/menu',
+    name: 'Menu',
+    component: Menu
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: Contact
+  },
+  {
+    path: '/cgv',
+    name: 'CGV',
+    component: CGV
+  },
+  {
+    path: '/mentions-légales',
+    name: 'Mentions légales',
+    component: Mentions
   }
 ]
 
