@@ -2,10 +2,10 @@ import { ref } from 'vue'
 
 const getPostInsta = (id) => {
 
-    const post = ref(null)
-    const error = ref(null)
+    const postInsta = ref(null)
+    const errorPostInsta = ref(null)
 
-    const load = async () => {
+    const loadPostInsta = async () => {
         try {
             const accessToken = '' // mettre le token de l'application fb
             // id correspond à l'id du compte insta: ici pausenatty
@@ -13,16 +13,16 @@ const getPostInsta = (id) => {
             if (!data.ok) {
                 throw Error(`${id} not found`)
             }
-            post.value = await data.json()
-            console.log(post.value)
+            postInsta.value = await data.json()
+            console.log(postInsta.value)
 
         }
         catch (err) {
-            error.value = err.message
+            errorPostInsta.value = err.message
         }
     }
 
-    return { post, error, load }
+    return { post: postInsta, error: errorPostInsta, load: loadPostInsta }
 }
 
 export default getPostInsta

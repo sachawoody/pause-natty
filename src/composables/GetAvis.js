@@ -2,10 +2,10 @@ import { ref } from 'vue'
 
 const getAvisGoogle = (id) => {
 
-    const avis = ref(null)
-    const error = ref(null)
+    const avisGoogle = ref(null)
+    const errorAvisGoogle = ref(null)
 
-    const load = async () => {
+    const loadAvisGoogle = async () => {
         try {
             const accessToken = '' // mettre le token de l'application fb
             let data = await fetch(
@@ -25,16 +25,16 @@ const getAvisGoogle = (id) => {
             if (!data.ok) {
                 throw Error(`${id} not found`)
             }
-            avis.value = await data.json()
-            console.log(avis.value)
+            avisGoogle.value = await data.json()
+            console.log(avisGoogle.value)
 
         }
         catch (err) {
-            error.value = err.message
+            errorAvisGoogle.value = err.message
         }
     }
 
-    return { post: avis, error, load }
+    return { post: avisGoogle, error: errorAvisGoogle, load: loadAvisGoogle }
 }
 
 export default getAvisGoogle

@@ -11,8 +11,8 @@
 
     <NavBar />
     <Concept />
-    <PostInsta :post="post" />
-    <AvisGoogle />
+    <PostInsta :post="postInsta" />
+    <AvisGoogle :post="avisGoogle"/>
     <Valeurs />
     <HealthForm />
 </template>
@@ -28,16 +28,17 @@ import HealthForm from '@/components/HealthForm.vue'
 
 
 import getPostInsta from '@/composables/GetPostInsta'
-
+import getAvisGoogle from '@/composables/GetAvis'
 
 export default {
     components: { NavBar, Concept, PostInsta, AvisGoogle, Valeurs, HealthForm },
     setup(props) {
-        const { post, error, load } = getPostInsta('pausenatty')
-        load()
-
+        const { post: postInsta, error: errorPostInsta, load: loadPostInsta } = getPostInsta('pausenatty') // l'id du compte insta à afficher
+        const { post: avisGoogle, error: errorAvisGoogle, load: loadAvisGoogle } = getAvisGoogle()
+        loadPostInsta()
+        loadAvisGoogle()
         return {
-            error, post
+            postInsta, errorPostInsta, avisGoogle, errorAvisGoogle
         }
     }
 }
