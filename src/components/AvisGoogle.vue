@@ -4,14 +4,14 @@
     <!-- <iframe src="//gmb.reviewsmaker.com/widget/load/?pid=ChIJ77aZrOWvthIRGchk0AGXsg4" frameborder="0"
         style="min-height:600px;min-width:600px;"></iframe> -->
     <iframe src="//gmb.reviewsmaker.com/widget/v2/?pid=ChIJ77aZrOWvthIRGchk0AGXsg4" scrolling="no" frameborder="0"></iframe>
-    <h3>Moyenne avis {{ avisGoogle.result.rating }} / 5</h3>
+    <!-- <h3>Moyenne avis {{ avisGoogle.result.rating }} / 5</h3>
     <div v-for="avis in avisGoogle" :key="avis">
         <p>Author: {{ avis.reviews[0].author_name }}</p>
         <p>Rating: {{ avis.reviews[0].rating }}</p>
         <img :src="avis.reviews[0].profile_photo_url" alt="">
         <p>Avis: {{ avis.reviews[0].text }}</p>
         <p>Avis posté le {{ formatDate(avis.reviews[0].time) }}</p>
-    </div>
+    </div> -->
 </template>
 
 <script>

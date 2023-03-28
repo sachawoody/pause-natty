@@ -7,7 +7,7 @@ const getAvisGoogle = (id) => {
 
     const loadAvisGoogle = async () => {
         try {
-            const accessToken = '' // mettre le token de l'application fb
+            const accessToken = '' // mettre le token de l'application
             let data = await fetch(
                 "https://www.reviewsmaker.com/api/v1/google-reviews",
                 {
@@ -17,7 +17,7 @@ const getAvisGoogle = (id) => {
                     },
                     body: JSON.stringify({
                         place_id: "ChIJ77aZrOWvthIRGchk0AGXsg4",
-                        api_key: "Votre clé d'API pour ReviewsMaker",
+                        api_key: accessToken,
                         limit: 10,
                     }),
                 }

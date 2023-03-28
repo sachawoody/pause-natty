@@ -79,8 +79,11 @@ export default {
             if (this.genre == "default") return
             if (this.genre == "female") {
                 this.result = Math.round(665.1 + (9.56 * this.poids) + (1.85 * this.taille) - (4.67 * this.age) * this.coeff)
+                this.tempResult = null
             } else {
                 this.result = Math.round(66.5 + (13.75 * this.poids) + (5 * this.taille) - (6.77 * this.age) * this.coeff)
+                this.tempResult = null
+
             }
 
         }
